@@ -35,12 +35,12 @@ function turnClick(square) {
 function turn(squareId, player) {
 	origBoard[squareId] = player;
 	document.getElementById(squareId).innerText = player;
-	
+
 	if(player == huPlayer) document.getElementById(squareId).style.color = "#4682B4";
 	else document.getElementById(squareId).style.color = "#CD5C5C";
-
 	let gameWon = checkWin(origBoard, player)
-	if (gameWon) gameOver(gameWon)
+	if (gameWon) 
+		gameOver(gameWon)
 }
 
 function checkWin(board, player) {
@@ -81,7 +81,10 @@ function bestSpot() {
 }
 
 function checkTie() {
-	if (emptySquares().length == 0) {
+	if (checkWin(origBoard, huPlayer)) {
+		return true;
+	}
+	else if (emptySquares().length == 0) {
 		for (var i = 0; i < cells.length; i++) {
 			cells[i].style.backgroundColor = "green";
 			cells[i].removeEventListener('click', turnClick, false);
