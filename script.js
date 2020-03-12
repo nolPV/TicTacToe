@@ -35,7 +35,7 @@ function turnClick(square) {
 function turn(squareId, player) {
 	origBoard[squareId] = player;
 	document.getElementById(squareId).innerText = player;
-
+	
 	if(player == huPlayer) document.getElementById(squareId).style.color = "#4682B4";
 	else document.getElementById(squareId).style.color = "#CD5C5C";
 
